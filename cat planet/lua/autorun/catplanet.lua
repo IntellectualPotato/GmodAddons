@@ -2,7 +2,7 @@ if not SERVER then return end
 
 CreateConVar("catplanet_max_cats", "100", {FCVAR_ARCHIVE, FCVAR_NOTIFY})
 CreateConVar("catplanet_spawn_delay", "40", {FCVAR_ARCHIVE, FCVAR_NOTIFY})
-CreateConVar("catplanet_random_spawn", "1", {FCVAR_ARCHIVE, FCVAR_NOTIFY})
+CreateConVar("catplanet_random_spawn", "0", {FCVAR_ARCHIVE, FCVAR_NOTIFY})
 
 local function GetMaxCats() return GetConVar("catplanet_max_cats"):GetInt() end
 local function GetSpawnDelay() return GetConVar("catplanet_spawn_delay"):GetFloat() end

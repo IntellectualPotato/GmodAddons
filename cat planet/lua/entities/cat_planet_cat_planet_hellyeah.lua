@@ -164,13 +164,12 @@ end
 if SERVER then
     function ENT:Initialize()
         self:SetModel("models/hunter/misc/sphere025x025.mdl")
-        self:PhysicsInitSphere(SPHERE_RADIUS, "metal_bouncy")
-        self:SetMoveType(MOVETYPE_VPHYSICS)
-        self:SetSolid(SOLID_VPHYSICS)
         self:SetUseType(SIMPLE_USE)
+        self:PhysicsInitSphere(SPHERE_RADIUS, "metal_bouncy")
 
-        local phys = self:GetPhysicsObject()
-        if IsValid(phys) then phys:Wake() end
+        timer.Simple(0, function() self:SetPos(self:GetPos() + Vector(0, 0, SPHERE_RADIUS / 2 )) end )
+
+        self:PhysWake()
 
         self:UpdateAnims(CV_SUPER:GetBool())
     end
